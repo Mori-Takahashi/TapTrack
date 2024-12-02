@@ -4,8 +4,6 @@
   color: white;
 }
 
-
-
 button {
   font-size: 18px;
   color: #e1e1e1;
@@ -45,3 +43,5 @@ button:after {
   transition-duration: 400ms;
   transition-property: width, left;
 }
+
+/*# sourceMappingURL=styles.css.map */
