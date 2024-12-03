@@ -44,4 +44,8 @@ button:after {
   transition-property: width, left;
 }
 
+.d-none {
+  display: none;
+}
+
 /*# sourceMappingURL=styles.css.map */
