@@ -1,1 +1,27 @@
-<h1></h1>
+<section>
+    <h2 class="tracking-in-expand">WILLKOMMEN BEI</h2>
+    <h1 class="tracking-in-expand-2">TapTrack!</h1>
+
+  <div class="start-container d-flex align-items-center">
+      <div class="start-container">
+        <button (click)="openWindow()" class="login">START!</button>
+      </div>
+
+    <div>
+      <button *ngIf="isNameAvailable" class="register">Weiter mit {{ storedName }}</button>
+    </div>
+  </div>
+
+  <!--name window-->
+  <div id="name_window" class="border rounded name-window d-none">
+    <h3 class="name-window-h3">Wie lautet dein Name:</h3>
+    <div class="input-group flex-nowrap bg-dark text-light p-2 rounded">
+      <span class="input-group-text bg-dark text-light border-0" id="addon-wrapping">&#64;</span>
+      <input id="userName" type="text" class="form-control bg-dark text-light border-0" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+    </div>
+    <div class="login-buttons">
+      <button (click)="setNameInLogin()" type="button" class="btn btn-success">Los gehts!</button>
+      <button (click)="close()" type="button" class="btn btn-danger">Schließen</button>
+    </div>
+  </div>
+</section>
