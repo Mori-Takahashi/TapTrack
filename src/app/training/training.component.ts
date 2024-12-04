@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-training',
@@ -10,8 +11,14 @@ export class TrainingComponent implements OnInit {
 
   name: string | null = '';
 
+  constructor(private router:Router) {
+  }
+
   ngOnInit() {
     this.name = localStorage.getItem('name');
+    if (!this.name) {
+      this.router.navigate(['/login']);
+    }
   }
 
 
