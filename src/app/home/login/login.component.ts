@@ -42,7 +42,10 @@ export class LoginComponent implements OnInit {
     if (nameElement) {
       localStorage.removeItem('name');
       let name = nameElement.value;
-      localStorage.setItem('name', name);
+      if (name) {
+        localStorage.setItem('name', name);
+        window.location.href = '/training';
+      }
     }
   }
 }
