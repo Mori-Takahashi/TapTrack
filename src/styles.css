@@ -48,4 +48,9 @@ button:after {
   display: none;
 }
 
+.bg-white-text-black {
+  background-color: white;
+  color: black;
+}
+
 /*# sourceMappingURL=styles.css.map */
