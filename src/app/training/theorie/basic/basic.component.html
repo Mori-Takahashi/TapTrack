@@ -1,4 +1,4 @@
-<section>
+<section class="">
   <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">TapTrack!</a>
@@ -11,5 +11,24 @@
       </button>
     </div>
   </nav>
+
+
+  <div class="d-flex align-items-center justify-content-center central-container">
+    <div class="border basic-central d-flex">
+      <h2>Basic</h2>
+
+      <div class="topics">
+        <div *ngFor="let topic of topics" class="card" (click)="openTopic(topic.id)">
+          <div class="card-header cursor-pointer">
+            <h2 class="bg-white-text-black">{{ topic.title }}</h2>
+          </div>
+          <div class="card-body bg-gray">
+            <p class="bg-gray">{{ topic.description }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 </section>

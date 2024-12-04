@@ -53,4 +53,180 @@ button:after {
   color: black;
 }
 
+.color-white {
+  color: white;
+}
+
+.color-black {
+  color: black;
+}
+
+.color-red {
+  color: red;
+}
+
+.color-blue {
+  color: blue;
+}
+
+.color-green {
+  color: green;
+}
+
+.color-yellow {
+  color: yellow;
+}
+
+.color-purple {
+  color: purple;
+}
+
+.color-orange {
+  color: orange;
+}
+
+.color-pink {
+  color: pink;
+}
+
+.color-gray {
+  color: gray;
+}
+
+.color-brown {
+  color: brown;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.bg-yellow {
+  background-color: yellow;
+}
+
+.bg-purple {
+  background-color: purple;
+}
+
+.bg-orange {
+  background-color: orange;
+}
+
+.bg-pink {
+  background-color: pink;
+}
+
+.bg-gray {
+  background-color: gray;
+}
+
+.bg-brown {
+  background-color: brown;
+}
+
+.cursor-auto {
+  cursor: auto;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-text {
+  cursor: text;
+}
+
+.cursor-wait {
+  cursor: wait;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.cursor-help {
+  cursor: help;
+}
+
+.cursor-zoom-in {
+  cursor: zoom-in;
+}
+
+.cursor-zoom-out {
+  cursor: zoom-out;
+}
+
+.cursor-move {
+  cursor: move;
+}
+
+.cursor-crosshair {
+  cursor: crosshair;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grabbing {
+  cursor: grabbing;
+}
+
+.cursor-resize-n {
+  cursor: n-resize;
+}
+
+.cursor-resize-e {
+  cursor: e-resize;
+}
+
+.cursor-resize-s {
+  cursor: s-resize;
+}
+
+.cursor-resize-w {
+  cursor: w-resize;
+}
+
+.cursor-resize-ne {
+  cursor: ne-resize;
+}
+
+.cursor-resize-nw {
+  cursor: nw-resize;
+}
+
+.cursor-resize-se {
+  cursor: se-resize;
+}
+
+.cursor-resize-sw {
+  cursor: sw-resize;
+}
+
+.cursor-all-scroll {
+  cursor: all-scroll;
+}
+
 /*# sourceMappingURL=styles.css.map */
