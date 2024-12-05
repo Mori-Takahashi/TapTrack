@@ -9,7 +9,7 @@
   </nav>
 
   <div class="text-center">
-    <h1>Hey, {{name}} was steht heute an?</h1>
+    <h1>Hey {{name}}, was steht heute an?</h1>
   </div>
 
 
@@ -166,7 +166,7 @@
 
       <div class="card-body d-flex">
         <span class="hallo-name">Hallo {{name}}</span>
-        <button type="button" class="btn btn-danger">Account Löschen</button>
+        <button (click)="clearLocalStorage()" type="button" class="btn btn-danger">Account Löschen</button>
         <h5 class="card-title">You can report errors here</h5>
         <a href="https://discord.com/channels/475637563911176194/972089865460121630" target="_blank" class="btn btn-primary">Discord</a>
         <a href="https://github.com/Mori-Takahashi/TapTrack/issues" target="_blank" class="btn btn-primary">GitHub</a>

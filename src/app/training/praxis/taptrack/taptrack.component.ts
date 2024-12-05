@@ -128,15 +128,18 @@ export class TaptrackComponent implements OnInit{
     const nextChar = currentTest[this.userInput.length];
     const keyPressed = event.key;
 
-    // Check if key is correct
+    const ignoredKeys = ['Enter', 'Backspace'];
+
+    if (ignoredKeys.includes(keyPressed)) {
+      return;
+    }
+
     if (keyPressed === nextChar) {
       this.userInput += keyPressed;
     } else {
-      // Count errors for statistics
       this.errorCount[keyPressed] = (this.errorCount[keyPressed] || 0) + 1;
     }
 
-    // Check if the test is completed
     if (this.userInput === currentTest) {
       this.finishTyping(currentTest);
     }
