@@ -8,37 +8,152 @@
     </div>
   </nav>
 
+  <div class="text-center">
+    <h1>Hey, {{name}} was steht heute an?</h1>
+  </div>
+
+
   <div class="container text-center">
     <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
       <div class="col">
-        <div class="p-3">Row column</div>
+        <div class="p-3">
+          <div class="card">
+            <div class="card-header">
+              Theorie
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Grundregeln des 10-Finger-Schreibens.</h5>
+              <p class="card-text bg-white-text-black">Tipps zur Handhaltung und Positionierung.</p>
+              <a [routerLink]="['/basic']" class="btn btn-primary">Start</a>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col">
-        <div class="p-3">Row column</div>
+        <div class="p-3">
+          <div class="card">
+            <div class="card-header">
+              Praxis
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Übungen</h5>
+              <p class="card-text bg-white-text-black">Geführte Schreibübungen</p>
+              <a href="#" class="btn btn-primary">Start</a>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col">
-        <div class="p-3">Row column</div>
+        <div class="p-3">
+          <div class="card">
+            <div class="card-header">
+              Statistik
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Statistiken einsehen</h5>
+              <p class="card-text bg-white-text-black">Hier findest du alle deine Statistiken</p>
+              <a href="#" class="btn btn-primary">Start</a>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col">
-        <div class="p-3">Row column</div>
+        <div class="p-3">
+          <div class="card">
+            <div class="card-header">
+              Theorie
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Häufige Fragen (FAQ)</h5>
+              <p class="card-text bg-white-text-black">Tipps für die richtige Tastatur.</p>
+              <a href="#" class="btn btn-primary">Start</a>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col">
-        <div class="p-3">Row column</div>
+        <div class="p-3">
+          <div class="card">
+            <div class="card-header">
+              Featured
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text bg-white-text-black">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col">
-        <div class="p-3">Row column</div>
+        <div class="p-3">
+          <div class="card">
+            <div class="card-header">
+              Featured
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text bg-white-text-black">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col">
-        <div class="p-3">Row column</div>
+        <div class="p-3">
+          <div class="card">
+            <div class="card-header">
+              Featured
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text bg-white-text-black">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col">
-        <div class="p-3">Row column</div>
+        <div class="p-3">
+          <div class="card">
+            <div class="card-header">
+              Featured
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text bg-white-text-black">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col">
-        <div class="p-3">Row column</div>
+        <div class="p-3">
+          <div class="card">
+            <div class="card-header">
+              Featured
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text bg-white-text-black">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col">
-        <div class="p-3">Row column</div>
+        <div class="p-3">
+          <div class="card">
+            <div class="card-header">
+              Featured
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text bg-white-text-black">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -46,11 +161,11 @@
   <div id="options" class="position-absolute d-none">
     <div class="card">
       <div class="card-header d-flex justify-content-end">
-        <button type="button" class="btn-close" aria-label="Close"></button>
+        <button (click)="hideOption()" type="button" class="btn-close" aria-label="Close"></button>
       </div>
 
-      <div class="card-body">
-        <span>Hallo {{name}}</span>
+      <div class="card-body d-flex">
+        <span class="hallo-name">Hallo {{name}}</span>
         <button type="button" class="btn btn-danger">Account Löschen</button>
         <h5 class="card-title">You can report errors here</h5>
         <a href="https://discord.com/channels/475637563911176194/972089865460121630" target="_blank" class="btn btn-primary">Discord</a>

@@ -1,0 +1,49 @@
+<section class="">
+  <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TapTrack!</a>
+      <button (click)="home()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </nav>
+
+
+  <div class="d-flex align-items-center justify-content-center central-container">
+    <div class="border basic-central d-flex">
+      <h2>Basic</h2>
+
+      <div class="topics">
+        <div *ngFor="let topic of topics" class="card" (click)="openTopic(topic.id)">
+          <div class="card-header cursor-pointer">
+            <h2 class="bg-white-text-black">{{ topic.title }}</h2>
+          </div>
+          <div class="card-body bg-gray">
+            <p class="bg-gray">{{ topic.description }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--post window-->
+  <div *ngIf="selectedPost" class="overlay">
+    <div class="card position-absolute blog-post">
+      <div class="card-header d-flex justify-content-end">
+        <button type="button" class="btn-close" aria-label="Close" (click)="closePost()"></button>
+      </div>
+
+      <div class="card-body color-white">
+        <h1>{{ selectedPost.title }}</h1>
+        <div>
+          <p>{{ selectedPost.text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

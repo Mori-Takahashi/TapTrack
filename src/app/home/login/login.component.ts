@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {NgIf} from '@angular/common';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-login',
   imports: [
-    NgIf
+    NgIf,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -42,7 +44,10 @@ export class LoginComponent implements OnInit {
     if (nameElement) {
       localStorage.removeItem('name');
       let name = nameElement.value;
-      localStorage.setItem('name', name);
+      if (name) {
+        localStorage.setItem('name', name);
+        window.location.href = '/training';
+      }
     }
   }
 }
