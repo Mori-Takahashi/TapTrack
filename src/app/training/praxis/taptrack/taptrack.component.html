@@ -16,7 +16,7 @@
     <div class="border praxis-central d-flex overflow-auto max-height">
       <h2>Praxis</h2>
 
-      <!-- Exercise List -->
+      <!-- List -->
       <div class="topics">
         <div
           *ngFor="let exercise of exercises"
@@ -32,8 +32,18 @@
         </div>
       </div>
 
-      <!-- Typing Exercise -->
-      <div *ngIf="selectedExercise" class="overlay">
+      <!--JSON einfügen-->
+      <div *ngIf="selectedExercise?.id === 6" class="custom-json-input">
+        <h2>Eigene Wörter hinzufügen</h2>
+        <textarea [(ngModel)]="customJSON" placeholder='{"data": ["Wort1", "Wort2"]}'></textarea>
+        <div class="d-flex">
+          <button (click)="validateCustomJSON()" class="btn btn-primary">Starten</button>
+          <button (click)="clearSelection()" class="btn btn-secondary">Abbrechen</button>
+        </div>
+      </div>
+
+      <!-- Typing -->
+      <div *ngIf="selectedExercise" id="overlay" class="overlay">
         <div class="card position-absolute exercise-detail">
           <div *ngIf="countdown > 0" class="countdown">
             <h1>{{ countdown }}</h1>
@@ -59,5 +69,4 @@
       </div>
     </div>
   </div>
-
 </section>

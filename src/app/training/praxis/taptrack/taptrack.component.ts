@@ -22,6 +22,7 @@ export class TaptrackComponent implements OnInit{
   startTime: number = 0;
   stats: { errors: number; speed: number; mostWrongKey: string } | null = null;
   errorCount: { [key: string]: number } = {};
+  customJSON: string = '';
 
 
   constructor(private router: Router) {}
@@ -30,14 +31,12 @@ export class TaptrackComponent implements OnInit{
     this.loadExercises();
   }
 
+  overlayOnOff: boolean = true;
+
 
   home() {
     this.router.navigate(['/training']);
   }
-
-
-
-
 
 
 
@@ -47,7 +46,7 @@ export class TaptrackComponent implements OnInit{
         id: 1,
         difficulty: 'Leicht',
         description: 'Hier sind einfache kleine Wörter.',
-        data: ['Haus', 'Baum', 'Auto', 'Katze', 'Hund', 'Brot', 'Tisch', 'Stuhl', 'Lampe', 'Buch']
+        data: ['Haus', 'Baum', 'Auto', 'Katze', 'Hund']
       },
       {
         id: 2,
@@ -57,8 +56,7 @@ export class TaptrackComponent implements OnInit{
           'Die Katze schläft.',
           'Das Auto ist rot.',
           'Ich gehe nach Hause.',
-          'Das Wetter ist schön.',
-          'Er liest ein Buch.'
+          'Das Wetter ist schön.'
         ]
       },
       {
@@ -67,10 +65,7 @@ export class TaptrackComponent implements OnInit{
         description: 'Hier sind Sätze mit Komma und Punkt.',
         data: [
           'Wenn ich nach Hause komme, werde ich erst einmal essen.',
-          'Das Buch, das ich gelesen habe, war wirklich spannend.',
-          'Heute scheint die Sonne, aber morgen soll es regnen.',
-          'Ich mag Schokolade, Kekse und Kuchen.',
-          'Bevor wir losfahren, sollten wir die Route planen.'
+          'Das Buch, das ich gelesen habe, war wirklich spannend.'
         ]
       },
       {
@@ -87,18 +82,58 @@ export class TaptrackComponent implements OnInit{
         id: 5,
         difficulty: 'Zeitrennen',
         description: 'Hier bekommst du einen Text, den du so schnell wie möglich abtippen musst.',
-        data: 'Das 10-Finger-Schreiben ist eine grundlegende Fähigkeit, die es dir ermöglicht, effizient und präzise zu tippen. Mit ausreichend Übung kannst du deine Geschwindigkeit und Genauigkeit stetig verbessern.'
+        data: 'Das 10-Finger-Schreiben ist eine grundlegende Fähigkeit, die es dir ermöglicht, effizient und präzise zu tippen.'
+      },
+      {
+        id: 6,
+        difficulty: 'Eigene Wörter',
+        description: 'Hier kannst du deine eigenen Wörter oder Sätze als JSON einfügen.',
+        data: []
       }
     ];
   }
 
   selectExercise(id: number) {
-    this.selectedExercise = this.exercises.find(exercise => exercise.id === id) || null;
-    this.userInput = '';
-    this.stats = null;
-    this.errorCount = {};
-    if (this.selectedExercise) {
-      this.startCountdown();
+    if (id === 6) {
+      this.selectedExercise = { id, difficulty: 'Eigene Wörter', description: '', data: '' };
+      this.customJSON = '';
+      this.overlayOnOff = false;
+      this.openCloseOverlay();
+    } else {
+      this.selectedExercise = this.exercises.find(exercise => exercise.id === id) || null;
+      this.userInput = '';
+      this.stats = null;
+      this.errorCount = {};
+      this.overlayOnOff = true;
+      this.openCloseOverlay();
+      if (this.selectedExercise) {
+        this.startCountdown();
+      }
+    }
+  }
+
+  validateCustomJSON() {
+    try {
+      const parsedJSON = JSON.parse(this.customJSON);
+
+      if (parsedJSON.data && Array.isArray(parsedJSON.data)) {
+        this.selectedExercise = {
+          id: 6,
+          difficulty: 'Eigene Wörter',
+          description: 'Benutzerdefiniertes JSON',
+          data: parsedJSON.data.join(' ')
+        };
+
+        setTimeout(() => {
+          this.startCountdown();
+          this.overlayOnOff = true;
+          this.openCloseOverlay();
+        }, 500);
+      } else {
+        alert('Ungültiges JSON-Format. Es wird ein Array mit dem Schlüssel "data" erwartet.');
+      }
+    } catch (e) {
+      alert('Ungültiges JSON. Bitte überprüfe die Syntax.');
     }
   }
 
@@ -147,14 +182,12 @@ export class TaptrackComponent implements OnInit{
 
   finishTyping(testText: string) {
     this.isTyping = false;
-    let endTime = performance.now();
-    let timeTaken = (endTime - this.startTime) / 1000; // in Sekunden
+    const endTime = performance.now();
+    const timeTaken = (endTime - this.startTime) / 1000;
 
-    let errors = Object.values(this.errorCount).reduce((acc, curr) => acc + curr, 0);
-
-    let speed = Math.round((testText.length / timeTaken) * 60); // WPM
-
-    let mostWrongKey = Object.keys(this.errorCount).length > 0
+    const errors = Object.values(this.errorCount).reduce((acc, curr) => acc + curr, 0);
+    const speed = Math.round((testText.length / timeTaken) * 60);
+    const mostWrongKey = Object.keys(this.errorCount).length > 0
       ? Object.keys(this.errorCount).reduce((a, b) =>
         this.errorCount[a] > this.errorCount[b] ? a : b
       )
@@ -167,7 +200,7 @@ export class TaptrackComponent implements OnInit{
   saveStatistics() {
     if (!this.selectedExercise || !this.stats) return;
 
-    let stats = JSON.parse(localStorage.getItem('typingStats') || '[]');
+    const stats = JSON.parse(localStorage.getItem('typingStats') || '[]');
 
     stats.push({
       difficulty: this.selectedExercise.difficulty,
@@ -182,6 +215,22 @@ export class TaptrackComponent implements OnInit{
     this.selectedExercise = null;
     this.countdown = 0;
     this.isTyping = false;
+    this.customJSON = '';
+  }
+
+  openCloseOverlay() {
+    setTimeout(() => {
+      let element = document.getElementById('overlay');
+      console.log('Element gefunden:', element !== null);
+      if (element) {
+        console.log('OverlayOnOff:', this.overlayOnOff);
+        if (this.overlayOnOff) {
+          element.classList.remove("d-none");
+        } else {
+          element.classList.add("d-none");
+        }
+      }
+    }, 200);
   }
 
   protected readonly Array = Array;
