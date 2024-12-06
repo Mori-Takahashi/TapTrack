@@ -1,0 +1,113 @@
+.praxis-central {
+  width: 800px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.central-container {
+  margin-top: 20px;
+}
+
+.topics {
+  min-width: 100%;
+}
+
+.max-height {
+  max-height: 100%;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.exercise-detail {
+  width: 80%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.countdown h1 {
+  font-size: 5rem;
+  text-align: center;
+}
+
+.test-text {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.statistics {
+  margin-top: 2rem;
+}
+
+.custom-json-input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  textarea {
+    width: 100%;
+    height: 150px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    resize: none;
+  }
+
+  .btn {
+    display: inline-block;
+    width: calc(50% - 0.5rem);
+    margin: 0 0.25rem;
+    padding: 0.5rem;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &.btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    &.btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

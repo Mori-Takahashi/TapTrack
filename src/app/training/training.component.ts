@@ -46,4 +46,13 @@ export class TrainingComponent implements OnInit {
     }
   }
 
+  clearLocalStorage() {
+    localStorage.removeItem("typingStats");
+    localStorage.removeItem("name");
+    console.log("Die Einträge 'typingStats' und 'name' wurden aus dem Local Storage gelöscht.");
+    setTimeout(() => {
+      this.router.navigate(['/login']);
+    }, 1000);
+  }
+
 }
