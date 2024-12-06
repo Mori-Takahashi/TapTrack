@@ -121,14 +121,14 @@ export class TaptrackComponent implements OnInit{
   onKeyPress(event: KeyboardEvent) {
     if (!this.isTyping || !this.selectedExercise) return;
 
-    const currentTest = Array.isArray(this.selectedExercise.data)
+    let currentTest = Array.isArray(this.selectedExercise.data)
       ? this.selectedExercise.data.join(' ')
       : this.selectedExercise.data;
 
-    const nextChar = currentTest[this.userInput.length];
-    const keyPressed = event.key;
+    let nextChar = currentTest[this.userInput.length];
+    let keyPressed = event.key;
 
-    const ignoredKeys = ['Enter', 'Backspace'];
+    let ignoredKeys = ['Enter', 'Backspace'];
 
     if (ignoredKeys.includes(keyPressed)) {
       return;
@@ -147,17 +147,14 @@ export class TaptrackComponent implements OnInit{
 
   finishTyping(testText: string) {
     this.isTyping = false;
-    const endTime = performance.now();
-    const timeTaken = (endTime - this.startTime) / 1000; // in Sekunden
+    let endTime = performance.now();
+    let timeTaken = (endTime - this.startTime) / 1000; // in Sekunden
 
-    // Fehleranzahl berechnen (initialer Wert: 0)
-    const errors = Object.values(this.errorCount).reduce((acc, curr) => acc + curr, 0);
+    let errors = Object.values(this.errorCount).reduce((acc, curr) => acc + curr, 0);
 
-    // Tippgeschwindigkeit berechnen (Wörter pro Minute)
-    const speed = Math.round((testText.length / timeTaken) * 60); // WPM
+    let speed = Math.round((testText.length / timeTaken) * 60); // WPM
 
-    // Meist falsch gedrückte Taste bestimmen (optional, wenn Fehler existieren)
-    const mostWrongKey = Object.keys(this.errorCount).length > 0
+    let mostWrongKey = Object.keys(this.errorCount).length > 0
       ? Object.keys(this.errorCount).reduce((a, b) =>
         this.errorCount[a] > this.errorCount[b] ? a : b
       )
@@ -168,8 +165,16 @@ export class TaptrackComponent implements OnInit{
   }
 
   saveStatistics() {
-    const stats = JSON.parse(localStorage.getItem('typingStats') || '[]');
-    stats.push({ ...this.stats, timestamp: new Date().toISOString() });
+    if (!this.selectedExercise || !this.stats) return;
+
+    let stats = JSON.parse(localStorage.getItem('typingStats') || '[]');
+
+    stats.push({
+      difficulty: this.selectedExercise.difficulty,
+      ...this.stats,
+      timestamp: new Date().toISOString()
+    });
+
     localStorage.setItem('typingStats', JSON.stringify(stats));
   }
 
