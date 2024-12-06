@@ -1,4 +1,4 @@
-<section>
+<section style="overflow: hidden">
   <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">TapTrack!</a>
@@ -12,5 +12,45 @@
     </div>
   </nav>
 
+  <div class="statistics-container">
+    <!-- Fortschritt -->
+    <div class="level-container">
+      <div class="progress-circle">
+        <div class="level-number">{{ level }}</div>
+        <svg>
+          <circle cx="50%" cy="50%" r="45%" class="progress-bg"></circle>
+          <circle
+            cx="50%"
+            cy="50%"
+            r="45%"
+            class="progress"
+            [style.strokeDasharray]="282"
+            [style.strokeDashoffset]="282 * (1 - xp / xpToNextLevel)"
+          ></circle>
+        </svg>
+      </div>
+      <p>XP: {{ xp }} / {{ xpToNextLevel }}</p>
+    </div>
+
+    <!-- Zusammenfassung -->
+    <div class="summary">
+      <h3>Statistiken</h3>
+      <p><strong>Bestes Geschwindigkeit:</strong> {{ bestSpeed }} WPM</p>
+      <p><strong>Fehler insgesamt:</strong> {{ totalErrors }}</p>
+      <p><strong>Meist falscher Buchstabe:</strong> {{ mostWrongKey }}</p>
+      <p><strong>Durchschnittliches Speed:</strong> {{ averageSpeed }} WPM</p>
+    </div>
+
+    <!-- Liste -->
+    <div class="sessions">
+      <h3>Gespeicherte Sessions</h3>
+      <div *ngFor="let session of allSessions" class="session">
+        <p><strong>Schwierigkeit:</strong> {{ session.difficulty }}</p>
+        <p><strong>Speed:</strong> {{ session.speed }} WPM</p>
+        <p><strong>Fehler:</strong> {{ session.errors }}</p>
+        <p><strong>Datum:</strong> {{ session.timestamp | date: 'medium' }}</p>
+      </div>
+    </div>
+  </div>
 
 </section>
