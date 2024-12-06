@@ -80,16 +80,13 @@ export class StatistikComponent implements OnInit {
         errorCounts[stat.mostWrongKey] = (errorCounts[stat.mostWrongKey] || 0) + 1;
       }
 
-      // Update best speed
       if (stat.speed > this.bestSpeed) {
         this.bestSpeed = stat.speed;
       }
     });
 
-    // Durchschnittsgeschwindigkeit
     this.averageSpeed = Math.round(totalSpeed / this.stats.length);
 
-    // Häufigster Fehler
     if (Object.keys(errorCounts).length > 0) {
       this.mostWrongKey = Object.keys(errorCounts).reduce((a, b) =>
         errorCounts[a] > errorCounts[b] ? a : b
