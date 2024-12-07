@@ -53,7 +53,8 @@ export class StatistikComponent implements OnInit {
     }
   }
 
-  calculateLevel() {
+/*Alt*/
+  /*calculateLevel() {
     this.stats.forEach(stat => {
       const xpGained = this.calculateXP(stat.difficulty, stat.speed);
       this.xp += xpGained;
@@ -62,6 +63,20 @@ export class StatistikComponent implements OnInit {
       while (this.xp >= this.xpToNextLevel) {
         this.level++;
         this.xp -= this.xpToNextLevel; // XP überschuss bleibt
+      }
+    });
+  }*/
+
+  /*neu*/
+  calculateLevel() {
+    this.stats.forEach(stat => {
+      const xpGained = this.calculateXP(stat.difficulty, stat.speed);
+      this.xp += xpGained;
+
+      // Level-Up
+      while (this.xp >= this.xpToNextLevel) {
+        this.level++;
+        this.xp -= this.xpToNextLevel; // Überschüssige XP werden übernommen
       }
     });
   }
