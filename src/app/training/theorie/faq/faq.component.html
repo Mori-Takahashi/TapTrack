@@ -1,1 +1,76 @@
-<p>faq works!</p>
+<section>
+  <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TapTrack!</a>
+      <button (click)="home()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </nav>
+
+
+
+  <div class="container text-center content">
+    <div class="row">
+      <div class="col">
+        <div class="card bg-white" style="width: 18rem;">
+          <div class="card-body bg-white">
+            <h5 class="card-title bg-white">Wie funktioniert das Level-System?</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary bg-white"></h6>
+            <p class="card-text color-black bg-white">Das Level-System basiert auf gesammelten Erfahrungspunkten (XP), die du für das Abschließen von Übungen erhältst. Je schwieriger die Übung, desto mehr XP bekommst du. Sobald du genügend XP gesammelt hast, steigst du ins nächste Level auf, und dein Fortschrittsbalken wird zurückgesetzt.</p>
+<!--            <a href="#" class="card-link bg-white">Card link</a>
+            <a href="#" class="card-link bg-white">Another link</a>-->
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card bg-white" style="width: 18rem;">
+          <div class="card-body bg-white">
+            <h5 class="card-title bg-white">Kann ich meine Fortschritte zurücksetzen?</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary bg-white"></h6>
+            <p class="card-text color-black bg-white">Ja, du kannst deine Fortschritte zurücksetzen. Dadurch werden alle gespeicherten Statistiken und XP aus deinem LocalStorage gelöscht. Klicke dazu auf "ACCOUNT LÖSCHEN" im Hauptmenü oder hier. Achtung: Diese Aktion kann nicht rückgängig gemacht werden.</p>
+            <a (click)="clearLocalStorage()" class="card-link bg-white cursor-pointer">ACCOUNT LÖSCHEN</a>
+<!--            <a href="#" class="card-link bg-white">Another link</a>-->
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card bg-white" style="width: 18rem;">
+          <div class="card-body bg-white">
+            <h5 class="card-title bg-white">Wie funktioniert der Modus "Eigene Wörter"</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary bg-white"></h6>
+            <p class="card-text color-black bg-white">Im Modus "Eigene Wörter" kannst du ein JSON mit deinen eigenen Wörtern oder Sätzen einfügen. Das JSON muss ein korrektes Format haben, Nach dem Einfügen wird überprüft, ob das JSON gültig ist, und die Übung startet.</p>
+            <!--TODO link einfügen-->
+            <a href="" target="_blank" class="card-link bg-white">JSON Beispiel</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card bg-white" style="width: 18rem;">
+          <div class="card-body bg-white">
+            <h5 class="card-title bg-white">Warum speichert die Plattform meine Statistik lokal?</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary bg-white"></h6>
+            <p class="card-text color-black bg-white">Deine Fortschritte und Statistiken werden im LocalStorage deines Browsers gespeichert. Dadurch bleiben deine Daten auch nach einem Neustart erhalten, ohne dass du ein Konto erstellen musst. Diese Daten werden nicht online gespeichert.</p>
+            <a href="" target="_blank" class="card-link bg-white"></a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card bg-white" style="width: 18rem;">
+          <div class="card-body bg-white">
+            <h5 class="card-title bg-white">Wie kann ich meine Tippgeschwindigkeit verbessern?</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary bg-white"></h6>
+            <p class="card-text color-black bg-white">Regelmäßiges Üben ist der Schlüssel! Starte mit einfachen Übungen im Modus "Leicht" und arbeite dich nach oben. Achte darauf, die richtige Handhaltung einzuhalten und vermeide, auf die Tastatur zu schauen. Versuche außerdem, häufige Fehler zu analysieren und gezielt zu verbessern.</p>
+            <a href="https://www.tippenakademie.de/app/source/public/images/intro/keyboard-colors-new3.png" target="_blank" class="card-link bg-white">Richtige Haltung</a>
+            <a href="https://www.tippenakademie.de/app/source/public/images/intro/basic-position.png" target="_blank" class="card-link bg-white">Startposition</a>
+            <a href="https://www.tippenakademie.de/10-finger-system" target="_blank" class="card-link bg-white">Alle infos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
