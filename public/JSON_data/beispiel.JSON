@@ -1,3 +1,4 @@
-{
-  "data": ["Dein erster Satz.", "Noch ein Satz.", "Und noch einer."]
-}
+Hier ist ein Beispiel:
+{"data": ["Dein erster Satz.", "Noch ein Satz.", "Und noch einer."]}
+
+WICHTIG! am anfang muss immer "data" stehen.
