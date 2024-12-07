@@ -4,6 +4,7 @@ import {TrainingComponent} from './training/training.component';
 import {BasicComponent} from './training/theorie/basic/basic.component';
 import {TaptrackComponent} from './training/praxis/taptrack/taptrack.component';
 import {StatistikComponent} from './training/statistik/statistik.component';
+import {FaqComponent} from './training/theorie/faq/faq.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: "/login", pathMatch: "full"},
@@ -11,5 +12,6 @@ export const routes: Routes = [
   {path: 'training', component: TrainingComponent},
   {path: 'basic', component: BasicComponent},
   {path: 'taptrack', component: TaptrackComponent},
-  {path: 'statistik', component: StatistikComponent}
+  {path: 'statistik', component: StatistikComponent},
+  {path: 'faq', component: FaqComponent}
 ];
