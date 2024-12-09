@@ -1,59 +1,49 @@
-# TapTrack
+# TapTrack - Lernplattform für 10-Finger-Schreiben
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+TapTrack ist während eines Mini-Hackathons von [Kevin Chromik](https://www.youtube.com/@KevinChromik) entstanden. Das Thema war **Lernen**, und daraus wurde diese Plattform, mit der man das 10-Finger-Schreiben spielerisch lernen und seine Fortschritte tracken kann.
 
-## Development server
+## 🔗 Live-Demo
+Du kannst die App hier testen:  
+[**TapTrack Live**](https://taptrack.pages.dev/)  
+**Hinweis:** Die Seite bleibt bis zum **10.12.2024** online.
 
-To start a local development server, run:
+---
 
+## 🚀 Technologien
+Dieses Projekt wurde mit folgenden Technologien umgesetzt:
+- **Angular** (Framework für die Entwicklung der Anwendung)
+- **TypeScript** (Programmiersprache)
+- **HTML** (Grundstruktur der Seite)
+- **SASS (SCSS)** (Styling)
+- **Bootstrap** (CSS-Framework für schnelle und responsive Gestaltung)
+- **JSON** (zur Speicherung und Verarbeitung von Daten)
+
+---
+
+## 🛠 Installation und Lokale Entwicklung
+
+Falls du das Projekt selbst ausprobieren möchtest, kannst du es wie folgt installieren und starten:
+
+### Voraussetzungen
+- **Node.js**: [Download und Installation](https://nodejs.org/)  
+  Node.js wird benötigt, um die Abhängigkeiten mit `npm` zu verwalten.
+- **Angular CLI**: Installiere die Angular CLI mit:
+  ```bash
+  npm install -g @angular/cli
+
+## Schritte
+- **Repository klonen**:
 ```bash
-ng serve
+  git clone https://github.com/Mori-Takahashi/TapTrack.git
+  cd TapTrack
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+- **Abhängigkeiten installieren**
 ```bash
-ng generate component component-name
+  npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+- **Entwicklungsserver starten**
 ```bash
-ng generate --help
+  ng serve
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
